@@ -31,6 +31,9 @@ class DataIngestionConfig:
         self.collection_name: str = training_pipeline.DATA_INGESTION_COLLECTION_NAME
         self.database_name: str = training_pipeline.DATA_INGESTION_DATABASE_NAME
 
+class DataValidationConfig:
+    def __init__(self):
+        pass
 class DataTransformationConfig:
     def __init__(self):
         pass 
