@@ -3,6 +3,7 @@ Name: networksecurity
 Version: 0.0.1
 Author: Jaya Barghavi
 Author-email: djbarghavi.dasari@gmail.com
+License-File: LICENSE
 Requires-Dist: python-dotenv
 Requires-Dist: pandas
 Requires-Dist: numpy
