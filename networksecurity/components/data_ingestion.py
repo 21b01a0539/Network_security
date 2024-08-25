@@ -1,17 +1,21 @@
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logger.logger import logging
 
+
+#configuration of component and artifact generation
 from networksecurity.entity.config_entity import DataIngestionConfig
 from networksecurity.entity.artifact_entity import DataIngestionArtifact
-import os,sys
+
+import os
+import sys
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
+import pymongo
 from typing import List
+from sklearn.model_selection import train_test_split
 
 from dotenv import load_dotenv
 load_dotenv()
-
 MONGO_DB_URL=os.getenv("MONGO_DB_URL")
 print(MONGO_DB_URL)
 
@@ -21,7 +25,7 @@ class DataIngestion:
             self.data_ingestion_config=data_ingestion_config
         except Exception as e:
             raise NetworkSecurityException(e,sys)
-    
+        
     def export_collection_as_dataframe(self):
         try:
             database_name=self.data_ingestion_config.database_name
@@ -37,9 +41,10 @@ class DataIngestion:
             df.replace({"na": np.nan}, inplace=True)
 
             return df
+            
         except Exception as e:
-            raise NetworkSecurityException(e, sys)
-    
+            raise NetworkSecurityException(e,sys)
+        
     def export_data_into_feature_store(self,dataframe: pd.DataFrame):
         try:
             feature_store_file_path=self.data_ingestion_config.feature_store_file_path
@@ -48,10 +53,12 @@ class DataIngestion:
             os.makedirs(dir_path,exist_ok=True)
             dataframe.to_csv(feature_store_file_path,index=False,header=True)
             return dataframe
+            
         except Exception as e:
-            raise NetworkSecurityException(e, sys)
-    
-    def split_data_into_train_test(self):
+            raise NetworkSecurityException(e,sys)
+        
+        
+    def split_data_as_train_test(self,dataframe: pd.DataFrame):
         try:
             train_set, test_set = train_test_split(
                 dataframe, test_size=self.data_ingestion_config.train_test_split_ratio
@@ -77,9 +84,10 @@ class DataIngestion:
             )
             logging.info(f"Exported train and test file path.")
 
+            
         except Exception as e:
-            raise NetworkSecurityException(e, sys)
-    
+            raise NetworkSecurityException(e,sys)
+        
     def initiate_data_ingestion(self):
         try:
             dataframe=self.export_collection_as_dataframe()
@@ -89,7 +97,9 @@ class DataIngestion:
             data_ingestion_artifact = DataIngestionArtifact(trained_file_path=self.data_ingestion_config.training_file_path,
             test_file_path=self.data_ingestion_config.testing_file_path)
             return data_ingestion_artifact
-
+            
+            
         except Exception as e:
-            raise NetworkSecurityException(e, sys)
-    
+            raise NetworkSecurityException(e,sys)
+        
+        

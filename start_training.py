@@ -11,8 +11,8 @@ def start_training():
     try:
         logging.info("training has started")
         print("Hi")
-        # model_training=TrainingPipeline()
-        # model_training.run_pipeline()
+        model_training=TrainingPipeline()
+        model_training.run_pipeline()
     except Exception as e:
         print("hey error")
         raise NetworkSecurityException(e,sys)
