@@ -3,8 +3,8 @@ import sys
 import numpy as np
 import pandas as pd
 
-
-""" common constant variable for training pipeline
+"""
+defining common constant variable for training pipeline
 """
 TARGET_COLUMN = "Result"
 PIPELINE_NAME: str = "NetworkSecurity"

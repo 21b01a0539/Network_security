@@ -12,6 +12,7 @@ class DataValidation:
     def __init__(self,data_ingestion_artifact:DataIngestionArtifact,
                  data_validation_config:DataValidationConfig):
         
+        
         try:
             self.data_ingestion_artifact=data_ingestion_artifact
             self.data_validation_config=data_validation_config
@@ -118,7 +119,6 @@ class DataValidation:
             test_dataframe.to_csv(
                 self.data_validation_config.valid_test_file_path, index=False, header=True
             )
-
             data_validation_artifact = DataValidationArtifact(
                 validation_status=status,
                 valid_train_file_path=self.data_ingestion_artifact.trained_file_path,

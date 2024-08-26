@@ -3,8 +3,10 @@ pandas
 numpy
 ipykernel
 pymongo
+pyyaml
 certifi
 pymongo[srv]
 scikit-learn
+dill
 
 -e .
