@@ -8,5 +8,6 @@ certifi
 pymongo[srv]
 scikit-learn
 dill
+xgboost
 
 -e .
