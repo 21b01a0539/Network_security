@@ -112,7 +112,8 @@ class TrainingPipeline:
             print(data_validation_artifact)
             data_transformation_artifact=self.start_data_transformation(data_validation_artifact=data_validation_artifact)
             print(data_transformation_artifact)
-            
+            model_trainer_artifact=self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)
+            print(model_trainer_artifact)
             # model_trainer_artifact=self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)
             # self.start_model_evaluation(model_trainer_artifact=model_trainer_artifact)
             
