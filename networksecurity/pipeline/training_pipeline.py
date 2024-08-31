@@ -110,6 +110,7 @@ class TrainingPipeline:
         
     def run_pipeline(self):
         try:
+            TrainingPipeline.is_pipeline_running=True
             data_ingestion_artifact=self.start_data_ingestion()
             # print(data_ingestion_artifact)
             data_validation_artifact=self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
@@ -125,6 +126,7 @@ class TrainingPipeline:
             print(model_eval_artifact)
             
             model_pusher_artifact = self.start_model_pusher(model_eval_artifact)
+            TrainingPipeline.is_pipeline_running=True
             
         except Exception as e:
             raise NetworkSecurityException(e,sys)

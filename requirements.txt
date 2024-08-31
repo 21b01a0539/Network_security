@@ -9,5 +9,7 @@ pymongo[srv]
 scikit-learn
 dill
 xgboost
+fastapi
+uvicorn
 
 -e .
