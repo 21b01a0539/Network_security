@@ -1,0 +1,7 @@
+Artifacts
+.git
+venv
+saved_models
+Network_Data
+logs
+Notebooks

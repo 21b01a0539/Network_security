@@ -11,5 +11,6 @@ dill
 xgboost
 fastapi
 uvicorn
+apache-airflow
 
 -e .
