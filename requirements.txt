@@ -12,5 +12,7 @@ xgboost
 fastapi
 uvicorn
 apache-airflow
+mlflow
+dvc
 
 -e .
