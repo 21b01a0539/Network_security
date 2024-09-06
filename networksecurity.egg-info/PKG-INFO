@@ -7,7 +7,16 @@ License-File: LICENSE
 Requires-Dist: python-dotenv
 Requires-Dist: pandas
 Requires-Dist: numpy
+Requires-Dist: ipykernel
 Requires-Dist: pymongo
+Requires-Dist: pyyaml
 Requires-Dist: certifi
 Requires-Dist: pymongo[srv]
 Requires-Dist: scikit-learn
+Requires-Dist: dill
+Requires-Dist: xgboost
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: apache-airflow
+Requires-Dist: mlflow
+Requires-Dist: dvc
